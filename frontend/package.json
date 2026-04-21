@@ -26,5 +26,10 @@
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.0",
     "vite": "^8.0.4"
-  }
+  },
+  "description": "Aplicación web fullstack que permite crear y gestionar rankings personales sobre cualquier tipo de contenido (películas, series, restaurantes, lugares, etc.).",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
