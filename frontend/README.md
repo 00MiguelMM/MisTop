@@ -1,38 +1,73 @@
-# MisTop
+# React + TypeScript + Vite
 
-Aplicación web fullstack que permite crear y gestionar rankings personales sobre cualquier tipo de contenido (películas, series, restaurantes, lugares, etc.).
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Usuarios objetivo
+Currently, two official plugins are available:
 
-- Personas que consumen contenido habitualmente (series, películas, restaurantes…)
-- Usuarios que quieren organizar sus gustos personales
-- Gente indecisa que quiere comparar opciones antes de elegir
-- Usuarios interesados en llevar un registro de sus preferencias
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Funcionalidades principales
+## React Compiler
 
-- Crear listas de ranking (ej: “Mejores películas”, “Restaurantes favoritos”)
-- Añadir elementos a una lista con nombre, descripción y puntuación (1–10)
-- Vista del ranking ordenado automáticamente según puntuación
-- Editar o eliminar elementos del ranking
-- API REST propia con Express
-- Cliente de API tipado en TypeScript
-- Gestión de estados de red: loading, success y error
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Funcionalidades opcionales
+## Expanding the ESLint configuration
 
-- Filtros y búsqueda dentro de cada lista
-- Etiquetas o categorías
-- Modo oscuro
-- Vista detallada de cada elemento
-- Ordenación manual adicional
-- Persistencia de preferencias del usuario
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Posibles mejoras futuras
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-- Sistema de autenticación
-- Compartir rankings con otros usuarios
-- Añadir imágenes
-- Sistema de recomendaciones
-- Integración con APIs externas
-- Exportar datos (JSON / CSV)
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
