@@ -17,3 +17,10 @@ He seguido un enfoque tipo Kanban, organizando el trabajo en distintas columnas:
 He dividido el proyecto en tareas pequeñas y subtareas para facilitar el desarrollo progresivo.
 
 Primero me he centrado en la preparación del proyecto (setup inicial), y después iré avanzando con el desarrollo del backend y el frontend.
+
+## Gestión del proyecto
+
+He organizado el desarrollo del proyecto utilizando Trello siguiendo una metodología tipo Kanban.
+
+Puedes ver el tablero aquí:
+https://trello.com/b/oWhZRt8L/mistop
