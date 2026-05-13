@@ -33,12 +33,15 @@ export function AddItemForm({ onAddItem }: AddItemFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-slate-700 bg-slate-900 p-6 shadow-lg"
+      className="rounded-2xl border border-slate-700 bg-slate-900/80 p-6 shadow-xl backdrop-blur"
     >
-      <h2 className="mb-4 text-xl font-semibold text-white">
-        Añadir nuevo elemento
+      <h2 className="mb-1 text-xl font-semibold text-white">
+        Añadir a mi ranking
       </h2>
 
+      <p className="mb-5 text-sm text-slate-400">
+        Guarda una película o serie con tu puntuación personal.
+      </p>
       <div className="grid gap-4 md:grid-cols-2">
         <input
           type="text"
@@ -74,9 +77,9 @@ export function AddItemForm({ onAddItem }: AddItemFormProps) {
 
         <button
           type="submit"
-          className="rounded-lg bg-blue-600 p-3 font-semibold text-white hover:bg-blue-500"
-        >
-          Añadir
+          className="rounded-lg bg-blue-600 p-3 font-semibold text-white transition hover:bg-blue-500 active:scale-95"
+>
+          Añadir al ranking
         </button>
       </div>
     </form>
