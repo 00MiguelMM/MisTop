@@ -6,18 +6,24 @@ interface RankingCardProps {
 
 export function RankingCard({ item }: RankingCardProps) {
   return (
-    <div className="bg-white rounded-xl shadow-md p-4 flex flex-col gap-2">
-      <h3 className="text-lg font-semibold">{item.title}</h3>
-
-      <p className="text-sm text-gray-600">{item.description}</p>
-
-      <div className="flex justify-between items-center mt-2">
-        <span className="text-xs bg-gray-200 px-2 py-1 rounded">
+    <article className="rounded-2xl border border-slate-700 bg-slate-900 p-5 shadow-lg transition hover:-translate-y-1 hover:border-blue-500 hover:shadow-blue-950/40">
+      <div className="mb-4 flex items-center justify-between">
+        <span className="rounded-full bg-blue-600/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-300">
           {item.category}
         </span>
 
-        <span className="font-bold text-blue-600">⭐ {item.score}</span>
+        <span className="rounded-full bg-yellow-400/10 px-3 py-1 text-sm font-bold text-yellow-300">
+          ⭐ {item.score}
+        </span>
       </div>
-    </div>
+
+      <h3 className="mb-2 text-xl font-bold text-white">
+        {item.title}
+      </h3>
+
+      <p className="text-sm leading-6 text-slate-300">
+        {item.description}
+      </p>
+    </article>
   );
 }
