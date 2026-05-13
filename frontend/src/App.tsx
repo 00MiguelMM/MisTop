@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { AddItemForm } from "./components/AddItemForm";
 import { RankingList } from "./components/RankingList";
 import type { RankingItem } from "./types/ranking";
 
-const exampleItems: RankingItem[] = [
+const initialItems: RankingItem[] = [
   {
     id: "1",
     title: "Interstellar",
@@ -20,6 +21,12 @@ const exampleItems: RankingItem[] = [
 ];
 
 function App() {
+  const [items, setItems] = useState<RankingItem[]>(initialItems);
+
+  function handleAddItem(newItem: RankingItem) {
+    setItems([...items, newItem]);
+  }
+
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       <section className="mx-auto max-w-5xl px-6 py-10">
@@ -28,9 +35,7 @@ function App() {
             Rankings personales
           </p>
 
-          <h1 className="text-5xl font-bold">
-            MisTop
-          </h1>
+          <h1 className="text-5xl font-bold">MisTop</h1>
 
           <p className="mx-auto mt-4 max-w-2xl text-slate-300">
             Organiza tus películas y series favoritas en rankings visuales,
@@ -38,14 +43,14 @@ function App() {
           </p>
         </header>
 
-        <AddItemForm />
+        <AddItemForm onAddItem={handleAddItem} />
 
         <section className="mt-8">
           <h2 className="mb-4 text-2xl font-semibold">
             Ranking destacado
           </h2>
 
-          <RankingList items={exampleItems} />
+          <RankingList items={items} />
         </section>
       </section>
     </main>
