@@ -58,8 +58,14 @@ const initialItems: RankingItem[] = [
 
 function App() {
   const [items, setItems] = useState<RankingItem[]>(initialItems);
-  const [search, setSearch] = useState("");
-  const [statusFilter, setStatusFilter] = useState<"todas" | RankingStatus>("todas");
+
+const [search, setSearch] = useState("");
+
+const [statusFilter, setStatusFilter] =
+  useState<"todas" | RankingStatus>("todas");
+
+const [activeTab, setActiveTab] =
+  useState<"peliculas" | "series">("peliculas");
 
   function handleAddItem(newItem: RankingItem) {
     setItems([...items, newItem]);
@@ -175,7 +181,35 @@ function App() {
             </button>
           </div>
 
-          <RankingList items={filteredItems} />
+          <div className="mb-6 flex gap-3">
+            <button
+              onClick={() => setActiveTab("peliculas")}
+              className={`rounded-full px-5 py-2 font-medium transition ${
+                activeTab === "peliculas"
+                  ? "bg-blue-600 text-white"
+                  : "bg-slate-800 text-slate-300"
+              }`}
+  >
+              Películas
+            </button>
+
+            <button
+              onClick={() => setActiveTab("series")}
+              className={`rounded-full px-5 py-2 font-medium transition ${
+                activeTab === "series"
+                  ? "bg-purple-600 text-white"
+                  : "bg-slate-800 text-slate-300"
+              }`}
+            >
+              Series
+            </button>
+          </div>
+
+          <RankingList
+            items={filteredItems.filter(
+              (item) => item.category === activeTab
+            )}
+          />
         </section>
       </section>
     </main>
