@@ -1,10 +1,18 @@
+import { AddItemForm } from "../components/AddItemForm";
 import { RankingList } from "../components/RankingList";
 import { useRankingsContext } from "../context/RankingContext";
+import type { RankingItem } from "../types/ranking";
 
 export function MoviesPage() {
-  const { items } = useRankingsContext();
+  const { items, addItem } = useRankingsContext();
 
-  const movies = items.filter((item) => item.category === "peliculas");
+  const movies = items.filter(
+    (item) => item.category === "peliculas"
+  );
+
+  function handleAddMovie(newItem: RankingItem) {
+    addItem(newItem);
+  }
 
   return (
     <section>
@@ -16,6 +24,10 @@ export function MoviesPage() {
         <p className="mt-2 text-slate-400">
           Ranking personal de películas guardadas en MisTop.
         </p>
+      </div>
+
+      <div className="mb-10">
+        <AddItemForm onAddItem={handleAddMovie} />
       </div>
 
       <RankingList items={movies} />
