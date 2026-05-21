@@ -22,8 +22,28 @@ export function AddItemForm({ onAddItem }: AddItemFormProps) {
   const [year, setYear] = useState("");
   const [score, setScore] = useState("");
 
+  const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
+
+    if (!title.trim()) {
+      setError("El título es obligatorio");
+      return;
+    }
+
+    if (!description.trim()) {
+      setError("La descripción es obligatoria");
+      return;
+    }
+
+    if (Number(score) < 1 || Number(score) > 10) {
+      setError("La puntuación debe estar entre 1 y 10");
+      return;
+    }
+
+    setError("");
 
     const newItem: RankingItem = {
       id: crypto.randomUUID(),
@@ -37,6 +57,12 @@ export function AddItemForm({ onAddItem }: AddItemFormProps) {
     };
 
     onAddItem(newItem);
+
+    setSuccessMessage("Elemento añadido correctamente");
+
+    setTimeout(() => {
+      setSuccessMessage("");
+    }, 3000);
 
     setTitle("");
     setDescription("");
@@ -59,6 +85,18 @@ export function AddItemForm({ onAddItem }: AddItemFormProps) {
       <p className="mb-5 text-sm text-slate-400">
         Guarda una película o serie con tu puntuación personal.
       </p>
+
+      {error && (
+        <div className="mb-4 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-300">
+          {error}
+        </div>
+      )}
+
+      {successMessage && (
+        <div className="mb-4 rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-3 text-sm text-emerald-300">
+          {successMessage}
+        </div>
+      )}
 
       <div className="grid gap-4 md:grid-cols-2">
         <input
