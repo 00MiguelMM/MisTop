@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import tmdbRoutes from "./routes/tmdbRoutes.js";
+import rankingsRoutes from "./routes/rankings.routes.js";
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/tmdb", tmdbRoutes);
+app.use("/api/rankings", rankingsRoutes);
 
 const PORT = process.env.PORT || 3000;
 
