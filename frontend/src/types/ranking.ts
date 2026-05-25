@@ -11,3 +11,8 @@ export interface RankingItem {
   year: number;
   score: number;
 }
+
+export interface Ranking {
+  id: number;
+  name: string;
+}

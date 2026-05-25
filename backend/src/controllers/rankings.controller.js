@@ -1,7 +1,6 @@
 const rankings = [
-  { id: 1, name: "Top restaurantes" },
-  { id: 2, name: "Top gimnasios" },
-  { id: 3, name: "Top pistas de pádel" },
+  { id: 1, name: "Top películas favoritas" },
+  { id: 2, name: "Top series favoritas" },
 ];
 
 export function getRankings(req, res) {
