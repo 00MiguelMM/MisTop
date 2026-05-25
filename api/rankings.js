@@ -4,11 +4,11 @@ const rankings = [
 ];
 
 export default function handler(req, res) {
-  if (req.url === "/api/rankings" && req.method === "GET") {
+  if (req.method === "GET") {
     return res.status(200).json(rankings);
   }
 
-  if (req.url === "/api/rankings" && req.method === "POST") {
+  if (req.method === "POST") {
     const { name } = req.body;
 
     if (!name) {
@@ -27,7 +27,7 @@ export default function handler(req, res) {
     return res.status(201).json(newRanking);
   }
 
-  return res.status(404).json({
-    message: "Ruta no encontrada",
+  return res.status(405).json({
+    message: "Método no permitido",
   });
 }
