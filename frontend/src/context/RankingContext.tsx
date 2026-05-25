@@ -6,7 +6,8 @@ const initialItems: RankingItem[] = [
   {
     id: "1",
     title: "Interstellar",
-    description: "Una película de ciencia ficción sobre el espacio, el tiempo y la familia.",
+    description:
+      "Una película de ciencia ficción sobre el espacio, el tiempo y la familia.",
     category: "peliculas",
     status: "terminada",
     genre: "Ciencia ficción",
@@ -15,28 +16,20 @@ const initialItems: RankingItem[] = [
   },
   {
     id: "2",
-    title: "Lo Imposible",
-    description: "Una historia emocionante basada en hechos reales sobre supervivencia y familia.",
+    title: "Oppenheimer",
+    description:
+      "Una película biográfica sobre ciencia, poder y responsabilidad.",
     category: "peliculas",
-    status: "terminada",
-    genre: "Drama",
-    year: 2012,
-    score: 8.7,
+    status: "pendiente",
+    genre: "Biografía",
+    year: 2023,
+    score: 9.1,
   },
   {
     id: "3",
-    title: "La Casa de Papel",
-    description: "Una serie española de atracos, tensión y personajes muy reconocibles.",
-    category: "series",
-    status: "viendo",
-    genre: "Thriller",
-    year: 2017,
-    score: 8.9,
-  },
-  {
-    id: "4",
     title: "Breaking Bad",
-    description: "Una serie intensa sobre decisiones, ambición y consecuencias.",
+    description:
+      "Una serie intensa sobre decisiones, ambición y consecuencias.",
     category: "series",
     status: "terminada",
     genre: "Drama criminal",
@@ -44,14 +37,15 @@ const initialItems: RankingItem[] = [
     score: 9.8,
   },
   {
-    id: "5",
-    title: "Oppenheimer",
-    description: "Una película biográfica sobre ciencia, poder y responsabilidad.",
-    category: "peliculas",
-    status: "pendiente",
-    genre: "Biografía",
-    year: 2023,
-    score: 9.1,
+    id: "4",
+    title: "La Casa de Papel",
+    description:
+      "Una serie española de atracos, tensión y personajes muy reconocibles.",
+    category: "series",
+    status: "viendo",
+    genre: "Thriller",
+    year: 2017,
+    score: 8.9,
   },
 ];
 
