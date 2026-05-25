@@ -100,7 +100,7 @@ export function HomePage() {
 
       <div className="mb-10 rounded-3xl border border-slate-700 bg-slate-900/80 p-6 shadow-xl">
         <h2 className="mb-4 text-2xl font-bold text-white">
-          Rankings cargados desde el backend
+          Rankings
         </h2>
 
         <form
