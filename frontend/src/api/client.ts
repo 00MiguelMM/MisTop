@@ -1,6 +1,7 @@
 import type { Ranking } from "../types/ranking";
 
-const API_URL = "http://localhost:3000/api";
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:3000/api";
 
 export async function getRankings(): Promise<Ranking[]> {
   const response = await fetch(`${API_URL}/rankings`);
