@@ -6,7 +6,7 @@
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![NodeJS](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
-Aplicación web desarrollada con React y TypeScript para crear y gestionar rankings personales de películas y series.
+Aplicación web fullstack desarrollada con React, TypeScript y Node.js para crear y gestionar rankings personales de películas y series.
 
 MisTop permite organizar contenido audiovisual mediante puntuaciones, estados personalizados y filtros visuales en una interfaz moderna y responsive.
 
@@ -16,7 +16,7 @@ MisTop permite organizar contenido audiovisual mediante puntuaciones, estados pe
 
 | Plataforma | URL |
 |---|---|
-| Frontend | Próximamente |
+| Aplicación web | https://mis-top-git-main-00miguelmms-projects.vercel.app |
 
 ---
 
@@ -32,6 +32,24 @@ MisTop permite organizar contenido audiovisual mediante puntuaciones, estados pe
 - Interfaz moderna con Tailwind CSS
 - Desarrollo rápido con Vite
 - Tipado completo con TypeScript
+- Conexión frontend/backend mediante API REST
+
+---
+
+# API y backend
+
+MisTop utiliza una API REST creada con Node.js y Express.
+
+La aplicación frontend consume la API mediante peticiones HTTP usando `fetch`.
+
+Endpoints principales:
+
+```txt
+GET /api/rankings
+POST /api/rankings
+```
+
+La API está desplegada en Vercel mediante funciones serverless.
 
 ---
 
@@ -66,6 +84,37 @@ MisTop permite organizar contenido audiovisual mediante puntuaciones, estados pe
 | GitHub | Repositorio remoto |
 | Trello | Organización del proyecto |
 | VS Code | Editor de código |
+| Vercel | Despliegue frontend y backend |
+
+---
+
+# Arquitectura
+
+El proyecto sigue una arquitectura frontend/backend:
+
+```txt
+Frontend React + TypeScript
+↓
+Cliente API (fetch)
+↓
+Backend Express / API REST
+↓
+Datos de rankings
+```
+
+El frontend se encarga de:
+
+- interfaz visual
+- navegación
+- estados de red
+- renderizado de rankings
+
+El backend se encarga de:
+
+- exponer endpoints REST
+- validar datos
+- responder peticiones HTTP
+- gestionar rankings
 
 ---
 
@@ -73,6 +122,9 @@ MisTop permite organizar contenido audiovisual mediante puntuaciones, estados pe
 
 ```txt
 MisTop/
+│
+├── api/
+│   └── rankings.js
 │
 ├── frontend/
 │   ├── public/
@@ -95,9 +147,40 @@ MisTop/
 │
 ├── docs/
 │   ├── agile.md
+│   ├── api-client.md
 │   ├── components.md
+│   ├── deployment.md
 │   ├── design.md
 │   ├── hooks.md
-│   └── project-management.md
+│   ├── project-management.md
+│   ├── testing.md
+│   └── retrospective.md
 │
 └── README.md
+```
+
+---
+
+# Instalación local
+
+## Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+## Backend
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+---
+
+# Autor
+
+Proyecto desarrollado por Miguel Martínez para la práctica fullstack de Desarrollo de Aplicaciones Multiplataforma (DAM).
